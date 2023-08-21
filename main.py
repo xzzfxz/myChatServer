@@ -2,10 +2,19 @@ from app.api.router import userRouter
 from fastapi import FastAPI
 import uvicorn
 from app.utils.logger import logger
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
 app.include_router(userRouter)
+
+# 跨域设置
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*'],
+    allow_methods=['*'],
+    allow_headers=['*']
+)
 
 
 @app.middleware("http")

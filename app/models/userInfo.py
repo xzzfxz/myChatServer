@@ -9,6 +9,7 @@ class User(Base):
     id = Column(BIGINT, primary_key=True, autoincrement=True)
     account = Column(Text, nullable=False)
     username = Column(Text, nullable=True)
+    password = Column(Text, nullable=False)
     phone = Column(Text, nullable=False)
     age = Column(INT, nullable=True)
     createdTime = Column(Text, nullable=False)
